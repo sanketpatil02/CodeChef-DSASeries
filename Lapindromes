@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+#include<vector>
+#include <algorithm> 
+#include<iostream>
+#include <iterator>
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+
+    while(t--){
+        string str;
+        cin>>str;
+
+        int arr1[26]={0};
+        int arr2[26]={0};
+        if(str.length()%2==0){
+           for(int i=0 ;i<str.length()/2;i++){
+               int temp = str[i]-97;
+               arr1[temp]++;
+           }
+           for(int i=str.length()/2;i<str.length();i++){
+               int temp = str[i]-97;
+               arr2[temp]++;
+           }
+            
+            if (std::equal(std::begin(arr1), std::end(arr1), std::begin(arr2)))
+                cout << "YES"<<endl;
+            else
+                cout << "NO"<<endl;     
+        
+        }
+        else{
+            for(int i=0 ;i<str.length()/2;i++){
+               int temp = str[i]-97;
+               arr1[temp]++;
+            }
+            for(int i=str.length()/2+1;i<str.length();i++){
+               int temp = str[i]-97;
+               arr2[temp]++;
+            }
+            
+            if (std::equal(std::begin(arr1), std::end(arr1), std::begin(arr2)))
+                cout << "YES"<<endl;
+            else
+                cout << "NO"<<endl;     
+            
+        }
+    }
+}
